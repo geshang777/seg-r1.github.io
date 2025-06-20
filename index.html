@@ -203,7 +203,7 @@
             We propose a new paradigm that leverages RL to equip LMMs with segmentation capabilities. We introduce Seg-R1, a simple yet effective framework for pixel-level learning. Our approach is built upon Qwen-2.5-VL-3B and SAM2, where Qwen-2.5-VL-3B is trained to generate bounding box and point prompts to guide SAM2 in producing segmentation masks. We incorporate GRPO into the segmentation task, requiring the model to output the reasoning process and mask prompts explicitly. To guide learning, we design a reward function that combines a format reward with a segmentation reward based on IoU and S-Measure, striking a balance between global accuracy and fine-grained structural fidelity.
           </p>
           <p>
-            To explore how far pure RL can drive segmentation in LMMs, we adopt a two-stage RL training strategy. Seg-R1 is first pre-trained with GRPO on the high-resolution DIS5K dataset to acquire fundamental knowledge of segmentation structure and formatting. It is then further fine-tuned on COD10K~\cite{fan2020camouflaged} to enhance both its segmentation precision and reasoning ability. Notably, our method requires no architectural modifications to Qwen-2.5-VL and introduces no special tokens. Seg-R1 autonomously learns to construct annotation trajectories and generate high-quality prompts for SAM2. As a result, it achieves state-of-the-art performance on weakly supervised camouflaged object detection tasks demonstrates remarkable open-world segmentation capabilities.
+            To explore how far pure RL can drive segmentation in LMMs, we adopt a two-stage RL training strategy. Seg-R1 is first pre-trained with GRPO on the high-resolution DIS5K dataset to acquire fundamental knowledge of segmentation structure and formatting. It is then further fine-tuned on COD10K to enhance both its segmentation precision and reasoning ability. Notably, our method requires no architectural modifications to Qwen-2.5-VL and introduces no special tokens. Seg-R1 autonomously learns to construct annotation trajectories and generate high-quality prompts for SAM2. As a result, it achieves state-of-the-art performance on weakly supervised camouflaged object detection tasks demonstrates remarkable open-world segmentation capabilities.
           </p>
         </div>
       </div>
@@ -291,7 +291,7 @@
 
 <div style="transform: scale(0.05); transform-origin: top left; width: fit-content;">
   <script type='text/javascript' id='clustrmaps' 
-          src='//cdn.clustrmaps.com/map_v2.js?cl=d38e43&w=a&t=n&d=iFgJmiNKvpBKIMrzuqe3WfNgPfyDP-u1tSu1cZZntZU&co=ffffff&cmn=3b4161&cmo=acad9d&ct=403b3f'>
+          src='//cdn.clustrmaps.com/map_v2.js?cl=d38e43&w=255&t=n&d=iFgJmiNKvpBKIMrzuqe3WfNgPfyDP-u1tSu1cZZntZU&co=ffffff&cmn=3b4161&cmo=acad9d&ct=403b3f'>
   </script>
 </div>
 <footer class="footer">
