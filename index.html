@@ -51,7 +51,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">
-            FOCUS: Towards Universal Foreground Segmentation
+            Seg-R1: Segmentation Can Be Surprisingly Simple with Reinforcement Learning
           </h1>          
           <!-- <div class="publication-venue-container">
             <p class="subtitle is-4 publication-venue">AAAI 2025</p>
@@ -60,12 +60,7 @@
 
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a >Zuyao You</a><sup>1,2</sup>,</span>
-            <span class="author-block">
-              <a >Lingyu Kong</a><sup>1*</sup>,</span>
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=pUl9H8gAAAAJ&hl=zh-CN&oi=ao">Lingchen Meng</a><sup>1,2*</sup>,
-            </span>
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=X8Kh8uoAAAAJ">Zuyao You</a><sup>1,2</sup>,</span>
             <span class="author-block">
               <a href="https://scholar.google.com/citations?user=7t12hVkAAAAJ&hl=zh-CN&oi=ao">Zuxuan Wu</a><sup>1,2†</sup>,
             </span>
@@ -75,7 +70,7 @@
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>Shanghai Key Lab of Intell. Info. Processing, School of CS, Fudan University,</span>
             <span class="author-block"><sup>2</sup>Shanghai Collaborative Innovation Center of Intelligent Visual Computing</span>
-            <p class="author-note">†: Corresponding author, *: These authors contributed equally.</p>
+            <p class="author-note">†: Corresponding author.</p>
           </div>
 
 
@@ -103,19 +98,40 @@
 
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/geshang777/FOCUS"
+                <a href="https://github.com/geshang777/Seg-R1"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
                   <span>Code</span>
                   </a>
+              </span>
+              <!-- Demo Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/spaces/geshang/Seg-R1-demo"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-globe"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://github.com/geshang777/Seg-R1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-database"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
               <!-- Model Link -->
               <span class="link-block">
-                <a href="https://drive.google.com/drive/folders/1IcyZnqc4vcsvSUcKb2llYGPt3ClFGjPl"  
+                <a href="https://huggingface.co/geshang/Seg-R1-7B"  
                   class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
-                        <i class="fab fa-google-drive"></i>  
+                        <i class="fab fa-hugging-face"></i>  
                     </span>
                     <span>Model</span> 
                 </a>
@@ -144,18 +160,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Foreground segmentation is a fundamental task in computer vision, including various subdivision tasks.
-            Previous research has typically designed task-specific architectures for foreground segmentation tasks,
-            leading to a lack of unified frameworks. Moreover, they primarily focus on <span class="bold">recognizing foreground</span>
-            objects without effectively <span class="bold">distinguishing the foreground from the background</span>. In this paper,
-            we argue that the background and its relationship with the foreground matter. We introduce <span class="bold">FOCUS</span>,
-            the <span class="bold">F</span>oreground <span class="bold">O</span>bje<span class="bold">C</span>ts <span class="bold">U</span>niversal
-            <span class="bold">S</span>egmentation framework that can handle multiple foreground tasks. We develop a multi-scale
-            semantic network using the edge information of objects to enhance image features. To achieve boundary-aware segmentation,
-            we propose a novel distillation method, integrating the contrastive learning strategy to refine the prediction mask
-            in multi-modal feature space. We conduct extensive experiments on a total of <span class="bold">13 datasets</span>
-            across <span class="bold">5 tasks</span>, and the results demonstrate that FOCUS consistently outperforms the
-            state-of-the-art task-specific models on most metrics.
+            We present <span class="bold">Seg-R1</span>, a preliminary exploration of using reinforcement learning (RL) to enhance the pixel-level understanding and reasoning capabilities of large multimodal models (LMMs). 
+            Starting with foreground segmentation tasks, specifically salient object detection (SOD) and camouflaged object detection (COD), our approach enables the LMM to generate point and bounding box prompts in a next-token fashion, 
+            which are then used to guide SAM2 in producing segmentation masks. We introduce <span class="bold">Group Relative Policy Optimization (GRPO)</span> into the segmentation domain, 
+            equipping the LMM with pixel-level comprehension through a carefully designed training strategy. Notably, Seg-R1 achieves state-of-the-art performance with purely RL-based training, 
+            achieving <span class="bold">.850</span> S-measure on COD10K without complex model modification. Moreover,  we found that pure RL training demonstrates <span class="bold">strong open-world generalization</span>. 
+            Despite being trained solely on foreground segmentation data without text annotations, Seg-R1 achieves impressive zero-shot performance on referring segmentation and reasoning segmentation tasks, 
+            with <span class="bold">67.3</span> cIoU on RefCOCOg val and <span class="bold">60.8</span> cIoU on ReasonSeg val, comparable with many fully supervised baselines.
           </p>
         </div>
       </div>
@@ -167,7 +178,7 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Pipeline</h2>
         <div class="publication-image">
-          <img src="static/images/focus_framework2.png" alt="Overview of the FOCUS framework" class="hover-zoom">
+          <img src="static/images/teaser_2.png" alt="Overview of segmentation ability of Seg-R1." class="hover-zoom">
         </div>
       </div>
     </div>
