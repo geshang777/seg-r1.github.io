@@ -1,122 +1,297 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
   <meta charset="utf-8">
+  <meta name="description"
+        content="Seg-R1: Segmentation Can Be Surprisingly Simple with Reinforcement Learning">
+  <meta name="keywords" content="Foreground Segmentation, Universal Segmetation, Multi-modal Segmentation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Seg-R1: Segmentation Can Be Surprisingly Simple with Reinforcement Learning">
-  <meta name="keywords" content="Foreground Segmentation, Universal Segmentation, Multi-modal Segmentation">
-  <title>Seg-R1: Simple Segmentation with RL</title>
+  <title>Seg-R1: Segmentation Can Be Surprisingly Simple with Reinforcement Learning</title>
 
-  <!-- Fonts and Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- Bulma CSS -->
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
-
-  <!-- Analytics -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
     gtag('js', new Date());
+
     gtag('config', 'G-PYVRSFMDRL');
   </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
 </head>
+<body>
 
-<body style="font-family: 'Inter', sans-serif;">
-  <!-- Hero Section -->
-  <section class="hero is-white is-fullwidth">
-    <div class="hero-body has-text-centered">
-      <div class="container">
-        <h1 class="title is-2 has-text-weight-bold">Seg-R1</h1>
-        <p class="subtitle is-5">Segmentation Can Be Surprisingly Simple with Reinforcement Learning</p>
-        <div class="is-size-6 mt-2">
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            Seg-R1: Segmentation Can Be Surprisingly Simple with Reinforcement Learning
+          </h1>          
+          <!-- <div class="publication-venue-container">
+            <p class="subtitle is-4 publication-venue">AAAI 2025</p>
+          </div> -->
+
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=X8Kh8uoAAAAJ">Zuyao You</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=7t12hVkAAAAJ&hl=zh-CN&oi=ao">Zuxuan Wu</a><sup>1,2†</sup>,
+            </span>
+
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Shanghai Key Lab of Intell. Info. Processing, School of CS, Fudan University,</span>
+            <span class="author-block"><sup>2</sup>Shanghai Collaborative Innovation Center of Intelligent Visual Computing</span>
+            <p class="author-note">†: Corresponding author.</p>
+          </div>
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2501.05238"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a "
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/geshang777/Seg-R1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Demo Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/spaces/geshang/Seg-R1-demo"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-globe"></i>
+                  </span>
+                  <span>Demo</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/geshang/FCoT"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-database"></i>
+                  </span>
+                  <span>Dataset</span>
+                  </a>
+              </span>
+              <!-- Model Link -->
+              <span class="link-block">
+                <a href="https://huggingface.co/geshang/Seg-R1-7B"  
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-server"></i>
+                  </span>
+                  <span>Model</span> 
+                </a>
+              </span>                         
+            </span>
+            </div>
+            
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="section">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">Abstract</h2>
+      <div class="publication-image">
+        <img src="static/images/teaser.png" alt="Overview of segmentation ability of Seg-R1." class="hover-zoom">
+      </div>
+    </div>
+  </div>
+
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <!-- <h2 class="title is-3">Abstract</h2> -->
+        <div class="content has-text-justified">
           <p>
-            <a href="https://scholar.google.com/citations?hl=zh-CN&user=X8Kh8uoAAAAJ">Zuyao You</a><sup>1,2</sup>,
-            <a href="https://scholar.google.com/citations?user=7t12hVkAAAAJ">Zuxuan Wu</a><sup>1,2†</sup>
+            We present Seg-R1, a preliminary exploration of using reinforcement learning (RL) to enhance the pixel-level understanding and reasoning capabilities of large multimodal models (LMMs). Starting with foreground segmentation tasks, specifically camouflaged object detection (COD) and salient object detection (SOD), our approach enables the LMM to generate point and bounding box prompts in a next-token fashion, which are then used to guide SAM2 in producing segmentation masks. We introduce Group Relative Policy Optimization (GRPO) into the segmentation domain, equipping the LMM with pixel-level comprehension through a carefully designed training strategy. Notably, Seg-R1 achieves remarkable performance with purely RL-based training, achieving .873 S-measure on COD10K without complex model modification. Moreover,  we found that pure RL training demonstrates strong open-world generalization. Despite being trained solely on foreground segmentation data without text annotations, Seg-R1 achieves impressive zero-shot performance on referring segmentation and reasoning segmentation tasks, with 71.4 cIoU on RefCOCOg val and 71.0 cIoU on ReasonSeg val, comparable with many fully supervised baselines.
           </p>
-          <p><sup>1</sup>Fudan University, <sup>2</sup>Shanghai Collaborative Innovation Center</p>
-          <p class="is-size-7 has-text-grey">&dagger; Corresponding author</p>
-        </div>
-        <!-- Links -->
-        <div class="buttons is-centered mt-4">
-          <a class="button is-dark is-rounded" href="https://arxiv.org/pdf/2501.05238">
-            <i class="fas fa-file-pdf mr-2"></i>Paper</a>
-          <a class="button is-dark is-rounded" href="https://github.com/geshang777/Seg-R1">
-            <i class="fab fa-github mr-2"></i>Code</a>
-          <a class="button is-dark is-rounded" href="https://huggingface.co/spaces/geshang/Seg-R1-demo">
-            <i class="fas fa-globe mr-2"></i>Demo</a>
-          <a class="button is-dark is-rounded" href="https://huggingface.co/datasets/geshang/FCoT">
-            <i class="fas fa-database mr-2"></i>Dataset</a>
-          <a class="button is-dark is-rounded" href="https://huggingface.co/geshang/Seg-R1-7B">
-            <i class="fas fa-server mr-2"></i>Model</a>
         </div>
       </div>
     </div>
-  </section>
+    <!--/ Abstract. -->
 
-  <!-- Abstract Section -->
-  <section class="section">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Abstract</h2>
-      <div class="has-text-centered mb-4">
-        <img class="image is-4by3" src="static/images/teaser.png" alt="Teaser">
-      </div>
-      <p class="content has-text-justified">
-        We present Seg-R1, a preliminary exploration of using reinforcement learning (RL) to enhance the pixel-level understanding and reasoning capabilities of large multimodal models (LMMs)...
-      </p>
-    </div>
-  </section>
-
-  <!-- Pipeline Section -->
-  <section class="section">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Pipeline</h2>
-      <div class="has-text-centered mb-4">
-        <img class="image is-4by3" src="static/images/framework.png" alt="Pipeline">
-      </div>
-      <p class="content has-text-justified">
-        We propose a new paradigm that leverages RL to equip LMMs with segmentation capabilities...
-      </p>
-    </div>
-  </section>
-
-  <!-- Results Section -->
-  <section class="section">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Results</h2>
-      <div class="has-text-centered mb-3">
-        <img class="image is-3by2 mb-4" src="static/images/refseg-multiple.png" alt="Results 1">
-        <img class="image is-3by2" src="static/images/seg-r1-figure.png" alt="Results 2">
+    <!-- Paper image and description -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Pipeline</h2>
+        <div class="publication-image">
+          <img src="static/images/framework.png" alt="Overview of segmentation ability of Seg-R1." class="hover-zoom">
+        </div>
       </div>
     </div>
-  </section>
+    <!--/ Paper image and description -->
 
-  <!-- BibTeX Section -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop">
-      <h2 class="title is-4">BibTeX</h2>
-      <pre><code>@inproceedings{you2025segr1,
+    <!-- Pipeline. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+
+          <p>
+            We propose a new paradigm that leverages RL to equip LMMs with segmentation capabilities. We introduce Seg-R1, a simple yet effective framework for pixel-level learning. Our approach is built upon Qwen-2.5-VL-3B and SAM2, where Qwen-2.5-VL-3B is trained to generate bounding box and point prompts to guide SAM2 in producing segmentation masks. We incorporate GRPO into the segmentation task, requiring the model to output the reasoning process and mask prompts explicitly. To guide learning, we design a reward function that combines a format reward with a segmentation reward based on IoU and S-Measure, striking a balance between global accuracy and fine-grained structural fidelity.
+          </p>
+          <p>
+            To explore how far pure RL can drive segmentation in LMMs, we adopt a two-stage RL training strategy. Seg-R1 is first pre-trained with GRPO on the high-resolution DIS5K dataset to acquire fundamental knowledge of segmentation structure and formatting. It is then further fine-tuned on COD10K to enhance both its segmentation precision and reasoning ability. Notably, our method requires no architectural modifications to Qwen-2.5-VL and introduces no special tokens. Seg-R1 autonomously learns to construct annotation trajectories and generate high-quality prompts for SAM2. As a result, it achieves state-of-the-art performance on weakly supervised camouflaged object detection tasks demonstrates remarkable open-world segmentation capabilities.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Pipeline. -->
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results</h2>
+        <div class="publication-image">
+          <img src="static/images/refseg-multiple.png" alt="Overview of fcot." class="hover-zoom">
+        </div>
+        <div class="publication-image">
+          <img src="static/images/seg-r1-figure.png" alt="Overview of fcot." class="hover-zoom">
+        </div>
+      </div>
+    </div>
+      <!--/ Results. -->
+
+  <!-- <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item">
+            <img src="./static/images/COD.jpg" alt="COD Image" style="width: 100%; height: auto;">
+          </div>
+          <div class="item">
+            <img src="./static/images/SOD.jpg" alt="SOD Image" style="width: 100%; height: auto;">
+          </div>
+          <div class="item">
+            <img src="./static/images/SD.jpg" alt="SD Image" style="width: 100%; height: auto;">
+          </div>
+          <div class="item">
+            <img src="./static/images/DBD.jpg" alt="DBD Image" style="width: 100%; height: auto;">
+          </div>
+          <div class="item">
+            <img src="./static/images/FD.jpg" alt="FD Image" style="width: 100%; height: auto;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="hero is-light is-small"></section>
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item">
+            <img src="./static/images/t1.jpg" alt="t1" style="width: 100%; height: auto;">
+          </div>
+          <div class="item">
+            <img src="./static/images/t2.jpg" alt="t2" style="width: 100%; height: auto;">
+          </div>
+          <div class="item">
+            <img src="./static/images/t3.jpg" alt="t3" style="width: 100%; height: auto;">
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{you2025segr1,
   title     = {{Seg-R1}: Segmentation Can Be Surprisingly Simple with Reinforcement Learning},
   author    = {You, Zuyao and Wu, Zuxuan},
   booktitle = {arxiv},
   year      = {2025},
 }</code></pre>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="footer has-background-light">
+<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=0e1a4a&w=255&t=n&d=iFgJmiNKvpBKIMrzuqe3WfNgPfyDP-u1tSu1cZZntZU&co=ffffff&cmn=f89303&ct=35333c"></script><footer class="footer">
+  <div class="container">
     <div class="content has-text-centered">
-      <p>Template adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.</p>
+      <p>Template from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, thanks!</p>
     </div>
-  </footer>
-</body>
+  </div>
+</footer>
 
+
+</body>
 </html>
