@@ -158,7 +158,7 @@
     <div class="column is-four-fifths">
       <h2 class="title is-3">Abstract</h2>
       <div class="publication-image">
-        <img src="static/images/teaser_2.png" alt="Overview of segmentation ability of Seg-R1." class="hover-zoom">
+        <img src="static/images/teaser.png" alt="Overview of segmentation ability of Seg-R1." class="hover-zoom">
       </div>
     </div>
   </div>
@@ -170,13 +170,7 @@
         <!-- <h2 class="title is-3">Abstract</h2> -->
         <div class="content has-text-justified">
           <p>
-            We present <span class="bold">Seg-R1</span>, a preliminary exploration of using reinforcement learning (RL) to enhance the pixel-level understanding and reasoning capabilities of large multimodal models (LMMs). 
-            Starting with foreground segmentation tasks, specifically salient object detection (SOD) and camouflaged object detection (COD), our approach enables the LMM to generate point and bounding box prompts in a next-token fashion, 
-            which are then used to guide SAM2 in producing segmentation masks. We introduce <span class="bold">Group Relative Policy Optimization (GRPO)</span> into the segmentation domain, 
-            equipping the LMM with pixel-level comprehension through a carefully designed training strategy. Notably, Seg-R1 achieves state-of-the-art performance with purely RL-based training, 
-            achieving <span class="bold">.850</span> S-measure on COD10K without complex model modification. Moreover,  we found that pure RL training demonstrates <span class="bold">strong open-world generalization</span>. 
-            Despite being trained solely on foreground segmentation data without text annotations, Seg-R1 achieves impressive zero-shot performance on referring segmentation and reasoning segmentation tasks, 
-            with <span class="bold">67.3</span> cIoU on RefCOCOg val and <span class="bold">60.8</span> cIoU on ReasonSeg val, comparable with many fully supervised baselines.
+            We present Seg-R1, a preliminary exploration of using reinforcement learning (RL) to enhance the pixel-level understanding and reasoning capabilities of large multimodal models (LMMs). Starting with foreground segmentation tasks, specifically camouflaged object detection (COD) and salient object detection (SOD), our approach enables the LMM to generate point and bounding box prompts in a next-token fashion, which are then used to guide SAM2 in producing segmentation masks. We introduce Group Relative Policy Optimization (GRPO) into the segmentation domain, equipping the LMM with pixel-level comprehension through a carefully designed training strategy. Notably, Seg-R1 achieves remarkable performance with purely RL-based training, achieving .873 S-measure on COD10K without complex model modification. Moreover,  we found that pure RL training demonstrates strong open-world generalization. Despite being trained solely on foreground segmentation data without text annotations, Seg-R1 achieves impressive zero-shot performance on referring segmentation and reasoning segmentation tasks, with 71.4 cIoU on RefCOCOg val and 71.0 cIoU on ReasonSeg val, comparable with many fully supervised baselines.
           </p>
         </div>
       </div>
@@ -188,7 +182,7 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Pipeline</h2>
         <div class="publication-image">
-          <img src="static/images/framework_seg-r1-2.png" alt="Overview of segmentation ability of Seg-R1." class="hover-zoom">
+          <img src="static/images/framework.png" alt="Overview of segmentation ability of Seg-R1." class="hover-zoom">
         </div>
       </div>
     </div>
@@ -210,21 +204,46 @@
     </div>
     <!--/ Pipeline. -->
 
-
-    <div class="container is-max-desktop">
-      <!-- Results. -->
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Results</h2>
+    <!-- Paper image and description -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">FCoT Dataset</h2>
+        <div class="publication-image">
+          <img src="static/images/fcot.png" alt="Overview of fcot." class="hover-zoom">
         </div>
       </div>
+    </div>
+    <!--/ Paper image and description -->
+    <!-- Datasets. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+
+          <p>
+            To further compare the effectiveness of RL with supervised fine-tuning (SFT), we introduce the Foreground Chain-of-Thought (FCoT) dataset to SFT the model as a cold start. FCoT is designed to replicate the step-by-step reasoning process a human annotator follows when using SAM2 to generate segmentation masks. It comprises 1,500 image–mask pairs collected from existing foreground segmentation datasets. Each pair was re-annotated by fitting the foreground masks using SAM2, guided by carefully constructed bounding box and point prompts in accordance with a standardized annotation protocol. To explicitly capture the annotators' reasoning process, we further leverage Gemini-2.5-Pro to generate natural language chain-of-thought of the annotation steps based on the provided prompts and annotation rules. We use FCoT to fine-tune Qwen-2.5-VL via supervised learning, serving as a comparative baseline against the RL-trained version of our model.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Datasets. -->
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results</h2>
+        <div class="publication-image">
+          <img src="static/images/seg-r1-figure.png" alt="Overview of fcot." class="hover-zoom">
+        </div>
+        <div class="publication-image">
+          <img src="static/images/refseg-multiple.png" alt="Overview of fcot." class="hover-zoom">
+        </div>
+      </div>
+    </div>
       <!--/ Results. -->
 
-  <section class="hero is-light is-small">
+  <!-- <section class="hero is-light is-small">
     <div class="hero-body">
       <div class="container">
         <div id="results-carousel" class="carousel results-carousel">
-          <!-- 单张图片 -->
           <div class="item">
             <img src="./static/images/COD.jpg" alt="COD Image" style="width: 100%; height: auto;">
           </div>
@@ -249,7 +268,6 @@
     <div class="hero-body">
       <div class="container">
         <div id="results-carousel" class="carousel results-carousel">
-          <!-- 单张图片 -->
           <div class="item">
             <img src="./static/images/t1.jpg" alt="t1" style="width: 100%; height: auto;">
           </div>
@@ -261,7 +279,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   </div>
 </section>
@@ -280,7 +298,7 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{you2025seg,
+    <pre><code>@inproceedings{you2025segr1,
   title     = {{Seg-R1}: Segmentation Can Be Surprisingly Simple with Reinforcement Learning},
   author    = {You, Zuyao and Wu, Zuxuan},
   booktitle = {arxiv},
