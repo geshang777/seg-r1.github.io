@@ -204,37 +204,14 @@
     </div>
     <!--/ Pipeline. -->
 
-    <!-- Paper image and description -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">FCoT Dataset</h2>
-        <div class="publication-image">
-          <img src="static/images/fcot.png" alt="Overview of fcot." class="hover-zoom">
-        </div>
-      </div>
-    </div>
-    <!--/ Paper image and description -->
-    <!-- Datasets. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <div class="content has-text-justified">
-
-          <p>
-            To further compare the effectiveness of RL with supervised fine-tuning (SFT), we introduce the Foreground Chain-of-Thought (FCoT) dataset to SFT the model as a cold start. FCoT is designed to replicate the step-by-step reasoning process a human annotator follows when using SAM2 to generate segmentation masks. It comprises 1,500 image–mask pairs collected from existing foreground segmentation datasets. Each pair was re-annotated by fitting the foreground masks using SAM2, guided by carefully constructed bounding box and point prompts in accordance with a standardized annotation protocol. To explicitly capture the annotators' reasoning process, we further leverage Gemini-2.5-Pro to generate natural language chain-of-thought of the annotation steps based on the provided prompts and annotation rules. We use FCoT to fine-tune Qwen-2.5-VL via supervised learning, serving as a comparative baseline against the RL-trained version of our model.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Datasets. -->
-
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Results</h2>
         <div class="publication-image">
-          <img src="static/images/seg-r1-figure.png" alt="Overview of fcot." class="hover-zoom">
+          <img src="static/images/refseg-multiple.png" alt="Overview of fcot." class="hover-zoom">
         </div>
         <div class="publication-image">
-          <img src="static/images/refseg-multiple.png" alt="Overview of fcot." class="hover-zoom">
+          <img src="static/images/seg-r1-figure.png" alt="Overview of fcot." class="hover-zoom">
         </div>
       </div>
     </div>
@@ -307,8 +284,7 @@
   </div>
 </section>
 
-<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=d38e43&w=255&t=n&d=iFgJmiNKvpBKIMrzuqe3WfNgPfyDP-u1tSu1cZZntZU&co=ffffff&ct=403b3f&cmo=acad9d&cmn=3b4161'></script>
-<footer class="footer">
+<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=0e1a4a&w=255&t=n&d=iFgJmiNKvpBKIMrzuqe3WfNgPfyDP-u1tSu1cZZntZU&co=ffffff&cmn=f89303&ct=35333c"></script><footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
       <p>Template from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, thanks!</p>
